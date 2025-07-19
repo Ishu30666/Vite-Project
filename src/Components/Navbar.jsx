@@ -3,7 +3,7 @@ import { FaBuildingColumns } from "react-icons/fa6";
 import { MdMiscellaneousServices } from "react-icons/md";
 import { IoIosHelpCircle, IoMdClose } from "react-icons/io";
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 
 
 export default function Navbar() {
@@ -24,24 +24,24 @@ export default function Navbar() {
   return (
     <nav className="backdrop-blur-sm bg-gray-800/80 w-full shadow-md fixed top-0 left-0 z-50 px-8 py-4 flex items-center justify-between">
       {/* Logo */}
-      <a
-        href="/"
+      <Link
+        to="/"
         className="text-white text-3xl font-bold tracking-wide hover:text-blue-500 transition-all duration-300"
       >
         Ishu
-      </a>
+      </Link>
 
       {/* Links */}
       <ul className="md:flex gap-8 items-center hidden ">
         {MENUDATA.map(({ name, icon, link }, index) => (
           <li key={index}>
-            <a
-              href={link}
+            <Link
+              to={link}
               className="text-white hover:text-blue-300 text-base font-medium flex items-center gap-2 transition-all duration-200"
             >
               {icon}
               <span>{name}</span>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -60,7 +60,7 @@ export default function Navbar() {
       {/* mobile view */}
 
       <div onClick={() => Setopen(!open)}
-        className="md:hidden flex items-center gap-3 cursor-pointer">
+        className="md:hidden flex items-center gap-3 cursor-pointer text-white text-2xl active:text-gray-300 duration-200">
         {
           open ? <FaBars /> : <IoMdClose />
         }
